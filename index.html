@@ -2,37 +2,40 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Idreams2build1 - Données & Micro-Business</title>
   <meta name="description" content="Plateforme solidaire de services numériques et d'entrepreneuriat collaboratif. Rejoignez-nous pour la saisie de données ou créer un micro-business." />
   <meta property="og:title" content="Idreams2Build1 - Données & Micro-Business" />
   <meta property="og:description" content="Coopération solidaire, micro-business tournants et services professionnels à distance." />
   <meta property="og:image" content="https://drive.google.com/uc?export=view&id=17Jochcyvz6RJeOyYDunbjzfFaH8Ds6SF" />
   <meta property="og:type" content="website" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 text-gray-800">
   <header class="bg-green-700 text-white py-6">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
       <div class="flex items-center space-x-4">
-        <img src="https://drive.google.com/uc?export=view&id=17Jochcyvz6RJeOyYDunbjzfFaH8Ds6SF" alt="Logo" class="w-12 h-12 object-contain rounded">
+        <img src="https://drive.google.com/uc?export=view&id=17Jochcyvz6RJeOyYDunbjzfFaH8Ds6SF" alt="Logo" class="w-12 h-12 object-contain rounded" />
         <div>
           <h1 class="text-3xl font-bold">Dream 2 Build 1</h1>
           <p class="text-sm">L’union fait le capital — Données & Coopération Entrepreneuriale</p>
         </div>
       </div>
-      <!-- NAVIGATION + LOGO À DROITE -->
-      <div class="flex items-center space-x-4 mt-4 sm:mt-0">
-        <nav class="space-x-4">
-          <a href="#donnees" class="text-white hover:underline">Saisie & Données</a>
-          <a href="#business" class="text-white hover:underline">Micro-Business</a>
-          <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
-        </nav>
-        <a href="/" title="Accueil">
-          <img src="https://drive.google.com/uc?export=view&id=1rqtxa0gSEYNG6OXPXZzuEXwIPv6P6pEQ" alt="Logo Droit" class="w-10 h-10 object-contain rounded-full border border-white shadow-md hover:scale-105 transition-transform">
+      
+      <nav class="mt-4 sm:mt-0 space-x-4 flex items-center">
+        <a href="#donnees" class="text-white hover:underline">Saisie & Données</a>
+        <a href="#business" class="text-white hover:underline">Micro-Business</a>
+        <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
+        <!-- Logo cliquable à droite -->
+        <a href="/" title="Accueil" class="ml-6">
+          <img 
+            src="https://drive.google.com/uc?export=view&id=1rqtxa0gSEYNG6OXPXZzuEXwIPv6P6pEQ" 
+            alt="Logo Droit" 
+            class="w-16 h-16 object-contain rounded-full border border-white shadow-md hover:scale-105 transition-transform"
+          />
         </a>
-      </div>
+      </nav>
     </div>
   </header>
 
@@ -77,8 +80,8 @@
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
       <form class="space-y-4" action="https://formsubmit.co/ejeambas@gmail.com" method="POST" onsubmit="return showConfirmation(event)">
-        <input type="text" name="name" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded">
-        <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded">
+        <input type="text" name="name" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
         <textarea name="message" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
       </form>
@@ -90,11 +93,11 @@
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Passer une commande ou demander un produit</h2>
       <form class="space-y-4" action="https://formsubmit.co/ejeambas@gmail.com" method="POST" onsubmit="return showConfirmationCommande(event)">
-        <input type="text" name="nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded">
-        <input type="text" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded">
-        <input type="text" name="adresse" placeholder="Adresse de livraison (si applicable)" class="w-full px-4 py-2 border rounded">
-        <input type="text" name="produit" placeholder="Produit ou pack désiré" required class="w-full px-4 py-2 border rounded">
-        <input type="text" name="paiement" placeholder="Mode de paiement (Cash, MonCash, etc.)" required class="w-full px-4 py-2 border rounded">
+        <input type="text" name="nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="adresse" placeholder="Adresse de livraison (si applicable)" class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="produit" placeholder="Produit ou pack désiré" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="paiement" placeholder="Mode de paiement (Cash, MonCash, etc.)" required class="w-full px-4 py-2 border rounded" />
         <textarea name="message" placeholder="Détails supplémentaires ou questions" class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer la commande</button>
       </form>
