@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dream2Build1 - Données & Micro-Business</title>
+  <title>Idreams2build1 - Données & Micro-Business</title>
   <meta name="description" content="Plateforme solidaire de services numériques et d'entrepreneuriat collaboratif. Rejoignez-nous pour la saisie de données ou créer un micro-business." />
+  <meta property="og:title" content="Idreams2Build1 - Données & Micro-Business" />
+  <meta property="og:description" content="Coopération solidaire, micro-business tournants et services professionnels à distance." />
+  <meta property="og:image" content="https://drive.google.com/uc?export=view&id=17Jochcyvz6RJeOyYDunbjzfFaH8Ds6SF" />
+  <meta property="og:type" content="website" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -21,50 +25,81 @@
         <a href="#donnees" class="text-white hover:underline">Saisie & Données</a>
         <a href="#business" class="text-white hover:underline">Micro-Business</a>
         <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
+        <a href="/" title="Accueil" class="ml-6">
+          <img src="https://drive.google.com/uc?export=view&id=1rqtxa0gSEYNG6OXPXZzuEXwIPv6P6pEQ" alt="Logo Droit" class="w-16 h-16 object-contain rounded-full border border-white shadow-md hover:scale-105 transition-transform" />
+        </a>
       </nav>
     </div>
   </header>
 
   <section class="py-10 px-4">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Bienvenue</h2>
-      <p class="mb-4">Plateforme de services numériques et micro-business solidaires.</p>
+      <h2 class="text-2xl font-semibold mb-4">Bienvenue sur notre plateforme</h2>
+      <p class="text-gray-600 text-sm mb-2">Notre mission : faciliter l’accès à des services professionnels de traitement de données tout en construisant une solidarité économique autour des micro-entreprises.</p>
+      <p class="mb-4">Nous sommes un groupe de professionnels spécialisés dans la saisie, le traitement et la gestion de données numériques. Notre objectif est d'offrir des services fiables et abordables aux entreprises et aux particuliers.</p>
+      <p>En parallèle, nous développons un modèle de financement solidaire pour soutenir la création de micro-entreprises à rotation rapide.</p>
     </div>
   </section>
 
-  <!-- FORMULAIRE 1 -->
+  <section id="donnees" class="bg-white py-10 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-4">Services de Saisie & Traitement de Données</h2>
+      <p class="text-gray-600 text-sm mb-2">Voici un aperçu des prestations que nous proposons à distance ou en partenariat.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Saisie manuelle ou automatisée</li>
+        <li>Nettoyage et structuration de données</li>
+        <li>Conversion de formats (PDF, Word, Excel)</li>
+        <li>Transcription audio/vidéo</li>
+        <li>Archivage numérique et indexation</li>
+        <li>Support administratif délocalisé</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="business" class="bg-gray-50 py-10 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-4">Système solidaire de Micro-Business</h2>
+      <p class="mb-4">Nous avons mis en place un système coopératif où chaque membre peut bénéficier d’un financement rotatif pour lancer une petite activité génératrice de revenus.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Vente de produits alimentaires (boutique, marché)</li>
+        <li>Commerce en ligne (vêtements, recharges, etc.)</li>
+        <li>Services : barber shop, coiffure, réparation mobile, etc.</li>
+      </ul>
+      <p class="mt-4">Le principe est simple : un cycle de financement solidaire avec rotation mensuelle et suivi par un tableau partagé. Chacun bénéficie à tour de rôle.</p>
+    </div>
+  </section>
+
   <section id="rejoindre" class="bg-white py-10 px-4">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Rejoindre la coopérative</h2>
+      <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
       <form action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)">
-        <input type="text" name="name" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
-        <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="message" placeholder="Motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
+        <input type="text" name="name" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
+        <textarea name="message" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
+        <p id="success-message" class="text-green-600 mt-4 hidden">Merci pour votre message ! Nous vous contacterons bientôt.</p>
       </form>
-      <p id="success-message" class="text-green-600 mt-4 hidden">Merci pour votre message ! Nous vous contacterons bientôt.</p>
     </div>
   </section>
 
-  <!-- FORMULAIRE 2 -->
   <section id="commande" class="bg-gray-50 py-10 px-4">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Passer une commande</h2>
-      <form action="https://script.google.com/macros/s/AKfycbx_uiU4yC8iqOKLQOnQgIbHLRY3PnIHcuoH5KI2jbgW9A2gjMgBSIrbYInlngbQWMvG/exec" method="POST" onsubmit="return showConfirmationCommande(event)">
+      <h2 class="text-2xl font-semibold mb-4">Passer une commande ou demander un produit</h2>
+      <form action="https://script.google.com/macros/s/AKfycbzLQmcqz6FDRfydp4ppqEy9K69TCzTje4-QC78cH0YqvAYiMDFyq9TPP0UX6NUO0PBz/exec" method="POST" onsubmit="return showConfirmationCommande(event)">
         <input type="text" name="nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
         <input type="text" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="adresse" placeholder="Adresse de livraison" class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="adresse" placeholder="Adresse de livraison (si applicable)" class="w-full px-4 py-2 border rounded" />
         <input type="text" name="produit" placeholder="Produit ou pack désiré" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="paiement" placeholder="Mode de paiement" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="message" placeholder="Message ou précisions" class="w-full px-4 py-2 border rounded"></textarea>
+        <input type="text" name="paiement" placeholder="Mode de paiement (Cash, MonCash, etc.)" required class="w-full px-4 py-2 border rounded" />
+        <textarea name="message" placeholder="Détails supplémentaires ou questions" class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer la commande</button>
+        <p id="confirmation-commande" class="text-green-600 mt-4 hidden">Merci pour votre commande ! Nous vous contacterons rapidement.</p>
       </form>
-      <p id="confirmation-commande" class="text-green-600 mt-4 hidden">Merci pour votre commande ! Nous vous contacterons rapidement.</p>
     </div>
   </section>
 
   <footer class="bg-green-800 text-white text-center py-6 mt-10">
-    <p>&copy; 2025 Dream2Build1 - Tous droits réservés.</p>
+    <p>&copy; 2025 Idreams2build1 - L’union fait le capital. Tous droits réservés.</p>
   </footer>
 
   <script>
@@ -75,14 +110,17 @@
       fetch(form.action, {
         method: 'POST',
         body: formData,
-      }).then(response => {
-        if (response.ok) {
+      })
+      .then(response => response.text())
+      .then(result => {
+        if (result.includes("success") || result.includes("OK")) {
           document.getElementById('success-message').classList.remove('hidden');
           form.reset();
         } else {
-          alert("Erreur lors de l’envoi.");
+          alert("Réponse inattendue : " + result);
         }
-      }).catch(error => {
+      })
+      .catch(error => {
         alert("Erreur réseau : " + error.message);
       });
       return false;
@@ -95,14 +133,17 @@
       fetch(form.action, {
         method: 'POST',
         body: formData,
-      }).then(response => {
-        if (response.ok) {
+      })
+      .then(response => response.text())
+      .then(result => {
+        if (result.includes("success") || result.includes("OK")) {
           document.getElementById('confirmation-commande').classList.remove('hidden');
           form.reset();
         } else {
-          alert("Erreur lors de l’envoi.");
+          alert("Réponse inattendue : " + result);
         }
-      }).catch(error => {
+      })
+      .catch(error => {
         alert("Erreur réseau : " + error.message);
       });
       return false;
