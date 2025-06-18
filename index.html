@@ -44,7 +44,6 @@
   <section id="donnees" class="bg-white py-10 px-4">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Services de Saisie & Traitement de Données</h2>
-      <p class="text-gray-600 text-sm mb-2">Voici un aperçu des prestations que nous proposons à distance ou en partenariat.</p>
       <ul class="list-disc list-inside space-y-2">
         <li>Saisie manuelle ou automatisée</li>
         <li>Nettoyage et structuration de données</li>
@@ -59,13 +58,11 @@
   <section id="business" class="bg-gray-50 py-10 px-4">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Système solidaire de Micro-Business</h2>
-      <p class="mb-4">Nous avons mis en place un système coopératif où chaque membre peut bénéficier d’un financement rotatif pour lancer une petite activité génératrice de revenus.</p>
       <ul class="list-disc list-inside space-y-2">
         <li>Vente de produits alimentaires (boutique, marché)</li>
         <li>Commerce en ligne (vêtements, recharges, etc.)</li>
         <li>Services : barber shop, coiffure, réparation mobile, etc.</li>
       </ul>
-      <p class="mt-4">Le principe est simple : un cycle de financement solidaire avec rotation mensuelle et suivi par un tableau partagé. Chacun bénéficie à tour de rôle.</p>
     </div>
   </section>
 
@@ -75,6 +72,7 @@
       <form class="space-y-4" action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)">
         <input type="text" name="nom" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
         <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
         <textarea name="motivation" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
       </form>
@@ -107,6 +105,10 @@
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
+      const nom = form.querySelector('[name="nom"]').value;
+      const whatsapp = form.querySelector('[name="whatsapp"]').value.replace(/\D/g, '');
+      const message = encodeURIComponent(`${nom} vient de soumettre une demande pour rejoindre la coopérative. Contactez-le au WhatsApp: +509${whatsapp}`);
+
       fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -115,6 +117,7 @@
         if (response.ok) {
           document.getElementById('success-message').classList.remove('hidden');
           form.reset();
+          fetch(`https://api.callmebot.com/whatsapp.php?phone=+509${whatsapp}&text=${message}&apikey=3854603`);
         } else {
           alert("Erreur lors de l'envoi. Réessayez.");
         }
@@ -127,10 +130,10 @@
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
-      const whatsappNumber = form.querySelector('[name="whatsapp"]').value.replace(/\D/g, '');
-      const produit = form.querySelector('[name="produit"]').value;
       const nom = form.querySelector('[name="nom"]').value;
-      const message = encodeURIComponent(`Nouvo kòmann: ${nom} mande pou "${produit}". Kontakte li sou WhatsApp.`);
+      const whatsapp = form.querySelector('[name="whatsapp"]').value.replace(/\D/g, '');
+      const produit = form.querySelector('[name="produit"]').value;
+      const message = encodeURIComponent(`${nom} a passé une commande: ${produit}. WhatsApp: +509${whatsapp}`);
 
       fetch(form.action, {
         method: 'POST',
@@ -140,11 +143,7 @@
         if (response.ok) {
           document.getElementById('confirmation-commande').classList.remove('hidden');
           form.reset();
-
-          // Appel CallMeBot pour notification
-          fetch(`https://api.callmebot.com/whatsapp.php?phone=+509${whatsappNumber}&text=${message}&apikey=3854603`)
-            .then(() => console.log("Notification WhatsApp envoyée"))
-            .catch(() => console.log("Échec notification CallMeBot"));
+          fetch(`https://api.callmebot.com/whatsapp.php?phone=+509${whatsapp}&text=${message}&apikey=3854603`);
         } else {
           alert("Erreur lors de l'envoi. Réessayez.");
         }
