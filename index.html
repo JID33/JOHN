@@ -10,8 +10,30 @@
   <meta property="og:image" content="https://drive.google.com/uc?export=view&id=17Jochcyvz6RJeOyYDunbjzfFaH8Ds6SF" />
   <meta property="og:type" content="website" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Fixe le bouton WhatsApp en haut à droite, visible sur tout le site */
+    #whatsapp-fixed {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    #whatsapp-fixed:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+  
+  <!-- Bouton WhatsApp fixe en haut à droite -->
+  <a id="whatsapp-fixed" href="https://wa.me/50943260012" target="_blank" rel="noopener" title="Contactez-nous sur WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-full h-full" />
+  </a>
+
   <header class="bg-green-700 text-white py-6">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
       <div class="flex items-center space-x-4">
@@ -71,12 +93,7 @@
 
   <section id="rejoindre" class="bg-white py-10 px-4">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4 flex items-center space-x-3">
-        <span>Rejoignez la coopérative</span>
-        <a href="https://wa.me/50943260012" target="_blank" rel="noopener" title="Contact WhatsApp">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-7 h-7 hover:opacity-80" />
-        </a>
-      </h2>
+      <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
       <form class="space-y-4" action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)">
         <input type="text" name="nom" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
         <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
