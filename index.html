@@ -71,10 +71,16 @@
 
   <section id="rejoindre" class="bg-white py-10 px-4">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
+      <h2 class="text-2xl font-semibold mb-4 flex items-center space-x-3">
+        <span>Rejoignez la coopérative</span>
+        <a href="https://wa.me/50943260012" target="_blank" rel="noopener" title="Contact WhatsApp">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-7 h-7 hover:opacity-80" />
+        </a>
+      </h2>
       <form class="space-y-4" action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)">
         <input type="text" name="nom" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
         <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
+        <input type="tel" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
         <textarea name="motivation" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
       </form>
@@ -103,13 +109,6 @@
   </footer>
 
   <script>
-    function envoyerWhatsapp(message) {
-      const phone = "+50943260012"; // Remplace par ton numéro
-      const apikey = "3854603";
-      const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phone)}&text=${encodeURIComponent(message)}&apikey=${apikey}`;
-      fetch(url).then().catch();
-    }
-
     function showConfirmation(event) {
       event.preventDefault();
       const form = event.target;
@@ -121,10 +120,6 @@
       }).then(response => {
         if (response.ok) {
           document.getElementById('success-message').classList.remove('hidden');
-          const nom = formData.get("nom");
-          const email = formData.get("email");
-          const motivation = formData.get("motivation");
-          envoyerWhatsapp(`Nouvo enregistrement sou Coop:\nNom: ${nom}\nEmail: ${email}\nMotivasyon: ${motivation}`);
           form.reset();
         } else {
           alert("Erreur lors de l'envoi. Réessayez.");
@@ -145,11 +140,6 @@
       }).then(response => {
         if (response.ok) {
           document.getElementById('confirmation-commande').classList.remove('hidden');
-          const nom = formData.get("nom");
-          const produit = formData.get("produit");
-          const whatsapp = formData.get("whatsapp");
-          const paiement = formData.get("paiement");
-          envoyerWhatsapp(`Nouvo komann resevwa:\nNom: ${nom}\nWhatsApp: ${whatsapp}\nPwodwi: ${produit}\nPeman: ${paiement}`);
           form.reset();
         } else {
           alert("Erreur lors de l'envoi. Réessayez.");
