@@ -103,7 +103,6 @@
   </footer>
 
   <script>
-    // Envoie à Google Script puis alert CallMeBot pour formulaire d'inscription
     function showConfirmation(event) {
       event.preventDefault();
       const form = event.target;
@@ -115,11 +114,14 @@
       }).then(response => {
         if (response.ok) {
           document.getElementById('success-message').classList.remove('hidden');
-          form.reset();
-          // Envoi message WhatsApp via CallMeBot API
-          const message = encodeURIComponent(`Nouvelle inscription reçue:\nNom: ${form.nom.value}\nEmail: ${form.email.value}`);
+          // Construire message pour CallMeBot
+          const nom = form.elements["nom"].value;
+          const email = form.elements["email"].value;
+          const message = encodeURIComponent(`Nouvelle inscription reçue:\nNom: ${nom}\nEmail: ${email}`);
+          // Envoyer notification WhatsApp via CallMeBot
           fetch(`https://api.callmebot.com/whatsapp.php?phone=+50943260012&text=${message}&apikey=3854603`)
             .catch(() => console.warn('Erreur envoi CallMeBot'));
+          form.reset();
         } else {
           alert("Erreur lors de l'envoi. Réessayez.");
         }
@@ -128,7 +130,6 @@
       });
     }
 
-    // Envoie à Google Script puis alert CallMeBot pour formulaire commande
     function showConfirmationCommande(event) {
       event.preventDefault();
       const form = event.target;
@@ -140,11 +141,15 @@
       }).then(response => {
         if (response.ok) {
           document.getElementById('confirmation-commande').classList.remove('hidden');
-          form.reset();
-          // Envoi message WhatsApp via CallMeBot API
-          const message = encodeURIComponent(`Nouvelle commande reçue:\nNom: ${form.nom.value}\nProduit: ${form.produit.value}\nWhatsApp: ${form.whatsapp.value}`);
+          // Construire message pour CallMeBot
+          const nom = form.elements["nom"].value;
+          const produit = form.elements["produit"].value;
+          const whatsapp = form.elements["whatsapp"].value;
+          const message = encodeURIComponent(`Nouvelle commande reçue:\nNom: ${nom}\nProduit: ${produit}\nWhatsApp: ${whatsapp}`);
+          // Envoyer notification WhatsApp via CallMeBot
           fetch(`https://api.callmebot.com/whatsapp.php?phone=+50943260012&text=${message}&apikey=3854603`)
             .catch(() => console.warn('Erreur envoi CallMeBot'));
+          form.reset();
         } else {
           alert("Erreur lors de l'envoi. Réessayez.");
         }
