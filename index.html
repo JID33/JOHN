@@ -72,10 +72,10 @@
   <section id="rejoindre" class="bg-white py-10 px-4">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
-      <form class="space-y-4" id="formRejoindre">
-        <input type="text" name="Nom" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
-        <input type="email" name="Email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="Message" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
+      <form action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)" class="space-y-4">
+        <input type="text" name="name" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
+        <textarea name="message" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
       </form>
       <p id="success-message" class="text-green-600 mt-4 hidden">Merci pour votre message ! Nous vous contacterons bientôt.</p>
@@ -85,13 +85,13 @@
   <section id="commande" class="bg-gray-50 py-10 px-4">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Passer une commande ou demander un produit</h2>
-      <form class="space-y-4" id="formCommande">
-        <input type="text" name="Nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="WhatsApp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="Adresse" placeholder="Adresse de livraison (si applicable)" class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="Produit" placeholder="Produit ou pack désiré" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="Paiement" placeholder="Mode de paiement (Cash, MonCash, etc.)" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="Message" placeholder="Détails supplémentaires ou questions" class="w-full px-4 py-2 border rounded"></textarea>
+      <form action="https://script.google.com/macros/s/AKfycbx_uiU4yC8iqOKLQOnQgIbHLRY3PnIHcuoH5KI2jbgW9A2gjMgBSIrbYInlngbQWMvG/exec" method="POST" onsubmit="return showConfirmationCommande(event)" class="space-y-4">
+        <input type="text" name="nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="adresse" placeholder="Adresse de livraison (si applicable)" class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="produit" placeholder="Produit ou pack désiré" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="paiement" placeholder="Mode de paiement (Cash, MonCash, etc.)" required class="w-full px-4 py-2 border rounded" />
+        <textarea name="message" placeholder="Détails supplémentaires ou questions" class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer la commande</button>
       </form>
       <p id="confirmation-commande" class="text-green-600 mt-4 hidden">Merci pour votre commande ! Nous vous contacterons rapidement.</p>
@@ -103,29 +103,37 @@
   </footer>
 
   <script>
-    const scriptURLRejoindre = 'https://script.google.com/macros/s/TON_URL_SCRIPT_REJOINDRE/exec';
-    const scriptURLCommande = 'https://script.google.com/macros/s/TON_URL_SCRIPT_COMMANDE/exec';
-
-    const formRejoindre = document.getElementById('formRejoindre');
-    const formCommande = document.getElementById('formCommande');
-
-    formRejoindre.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURLRejoindre, { method: 'POST', body: new FormData(formRejoindre) })
-        .then(response => {
+    function showConfirmation(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
           document.getElementById('success-message').classList.remove('hidden');
-          formRejoindre.reset();
-        });
-    });
+          form.reset();
+        }
+      });
+    }
 
-    formCommande.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURLCommande, { method: 'POST', body: new FormData(formCommande) })
-        .then(response => {
+    function showConfirmationCommande(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
           document.getElementById('confirmation-commande').classList.remove('hidden');
-          formCommande.reset();
-        });
-    });
+          form.reset();
+        }
+      });
+    }
   </script>
 </body>
 </html>
