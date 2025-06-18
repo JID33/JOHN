@@ -21,18 +21,12 @@
           <p class="text-sm">L’union fait le capital — Données & Coopération Entrepreneuriale</p>
         </div>
       </div>
-      
       <nav class="mt-4 sm:mt-0 space-x-4 flex items-center">
         <a href="#donnees" class="text-white hover:underline">Saisie & Données</a>
         <a href="#business" class="text-white hover:underline">Micro-Business</a>
         <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
-        <!-- Logo cliquable à droite -->
         <a href="/" title="Accueil" class="ml-6">
-          <img 
-            src="https://drive.google.com/uc?export=view&id=1rqtxa0gSEYNG6OXPXZzuEXwIPv6P6pEQ" 
-            alt="Logo Droit" 
-            class="w-16 h-16 object-contain rounded-full border border-white shadow-md hover:scale-105 transition-transform"
-          />
+          <img src="https://drive.google.com/uc?export=view&id=1rqtxa0gSEYNG6OXPXZzuEXwIPv6P6pEQ" alt="Logo Droit" class="w-16 h-16 object-contain rounded-full border border-white shadow-md hover:scale-105 transition-transform" />
         </a>
       </nav>
     </div>
@@ -79,9 +73,9 @@
     <div class="max-w-3xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
       <form class="space-y-4" action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)">
-        <input type="text" name="name" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="nom" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
         <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="message" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
+        <textarea name="motivation" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
         <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
       </form>
       <p id="success-message" class="text-green-600 mt-4 hidden">Merci pour votre message ! Nous vous contacterons bientôt.</p>
@@ -116,15 +110,16 @@
       fetch(form.action, {
         method: 'POST',
         body: formData,
+        headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
           document.getElementById('success-message').classList.remove('hidden');
           form.reset();
         } else {
-          alert('Une erreur est survenue, veuillez réessayer.');
+          alert("Erreur lors de l'envoi. Réessayez.");
         }
       }).catch(() => {
-        alert('Erreur réseau, veuillez vérifier votre connexion.');
+        alert("Erreur réseau, veuillez vérifier votre connexion.");
       });
     }
 
@@ -135,15 +130,16 @@
       fetch(form.action, {
         method: 'POST',
         body: formData,
+        headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
           document.getElementById('confirmation-commande').classList.remove('hidden');
           form.reset();
         } else {
-          alert('Une erreur est survenue, veuillez réessayer.');
+          alert("Erreur lors de l'envoi. Réessayez.");
         }
       }).catch(() => {
-        alert('Erreur réseau, veuillez vérifier votre connexion.');
+        alert("Erreur réseau, veuillez vérifier votre connexion.");
       });
     }
   </script>
