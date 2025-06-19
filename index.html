@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,8 +28,6 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-
-  <!-- Bouton WhatsApp -->
   <a id="whatsapp-fixed" href="https://wa.me/50943260012" target="_blank" rel="noopener" title="Contactez-nous sur WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-full h-full" />
   </a>
@@ -48,6 +47,7 @@
         <a href="#business" class="text-white hover:underline">Micro-Business</a>
         <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
         <span id="user-actions" class="text-white space-x-2 ml-4">
+          <button id="register-btn" class="bg-yellow-300 text-green-900 px-3 py-1 rounded hover:bg-yellow-400">S’inscrire</button>
           <button id="login-btn" class="bg-white text-green-800 px-3 py-1 rounded hover:bg-green-100">Connexion</button>
           <button id="logout-btn" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 hidden">Déconnexion</button>
         </span>
@@ -64,135 +64,89 @@
     </div>
   </section>
 
-  <section id="donnees" class="bg-white py-10 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Services de Saisie & Traitement de Données</h2>
-      <p class="text-gray-600 text-sm mb-2">Voici un aperçu des prestations que nous proposons à distance ou en partenariat.</p>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Saisie manuelle ou automatisée</li>
-        <li>Nettoyage et structuration de données</li>
-        <li>Conversion de formats (PDF, Word, Excel)</li>
-        <li>Transcription audio/vidéo</li>
-        <li>Archivage numérique et indexation</li>
-        <li>Support administratif délocalisé</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="business" class="bg-gray-50 py-10 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Système solidaire de Micro-Business</h2>
-      <p class="mb-4">Nous avons mis en place un système coopératif où chaque membre peut bénéficier d’un financement rotatif pour lancer une petite activité génératrice de revenus.</p>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Vente de produits alimentaires (boutique, marché)</li>
-        <li>Commerce en ligne (vêtements, recharges, etc.)</li>
-        <li>Services : barber shop, coiffure, réparation mobile, etc.</li>
-      </ul>
-      <p class="mt-4">Le principe est simple : un cycle de financement solidaire avec rotation mensuelle et suivi par un tableau partagé. Chacun bénéficie à tour de rôle.</p>
-    </div>
-  </section>
-
-  <section id="rejoindre" class="bg-white py-10 px-4">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Rejoignez la coopérative</h2>
-      <form class="space-y-4" action="https://script.google.com/macros/s/AKfycbzX--IEZVLPd8WiqfryHkzaqql_nMT-mj3chd3MasZR8z-H-BHIGmcHyldCaHs0WMbloQ/exec" method="POST" onsubmit="return showConfirmation(event)">
-        <input type="text" name="nom" placeholder="Votre nom complet" required class="w-full px-4 py-2 border rounded" />
-        <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
-        <input type="tel" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="motivation" placeholder="Votre motivation ou expérience" required class="w-full px-4 py-2 border rounded"></textarea>
-        <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer</button>
-      </form>
-      <p id="success-message" class="text-green-600 mt-4 hidden">Merci pour votre message ! Nous vous contacterons bientôt.</p>
-    </div>
-  </section>
-
-  <section id="commande" class="bg-gray-50 py-10 px-4">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Passer une commande ou demander un produit</h2>
-      <form class="space-y-4" action="https://script.google.com/macros/s/AKfycbx_uiU4yC8iqOKLQOnQgIbHLRY3PnIHcuoH5KI2jbgW9A2gjMgBSIrbYInlngbQWMvG/exec" method="POST" onsubmit="return showConfirmationCommande(event)">
-        <input type="text" name="nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="whatsapp" placeholder="Numéro WhatsApp" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="adresse" placeholder="Adresse de livraison (si applicable)" class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="produit" placeholder="Produit ou pack désiré" required class="w-full px-4 py-2 border rounded" />
-        <input type="text" name="paiement" placeholder="Mode de paiement (Cash, MonCash, etc.)" required class="w-full px-4 py-2 border rounded" />
-        <textarea name="message" placeholder="Détails supplémentaires ou questions" class="w-full px-4 py-2 border rounded"></textarea>
-        <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded hover:bg-green-800">Envoyer la commande</button>
-      </form>
-      <p id="confirmation-commande" class="text-green-600 mt-4 hidden">Merci pour votre commande ! Nous vous contacterons rapidement.</p>
-    </div>
-  </section>
-
   <footer class="bg-green-800 text-white text-center py-6 mt-10">
     <p>&copy; 2025 Idreams2build1 - L’union fait le capital. Tous droits réservés.</p>
   </footer>
 
+  <!-- Modal inscription -->
+  <div id="register-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-lg shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Créer un compte membre</h2>
+      <form id="register-form" class="space-y-4">
+        <input type="text" name="prenom" placeholder="Prénom" required class="w-full px-4 py-2 border rounded" />
+        <input type="text" name="nom" placeholder="Nom" required class="w-full px-4 py-2 border rounded" />
+        <input type="date" name="naissance" placeholder="Date de naissance" required class="w-full px-4 py-2 border rounded" />
+        <input type="email" name="email" placeholder="Adresse email" required class="w-full px-4 py-2 border rounded" />
+        <input type="tel" name="whatsapp" placeholder="Téléphone WhatsApp" required class="w-full px-4 py-2 border rounded" />
+        <div class="flex justify-between">
+          <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Valider l'inscription</button>
+          <button type="button" id="close-modal" class="text-red-600 hover:underline">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script>
-    function showConfirmation(event) {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById('success-message').classList.remove('hidden');
-          form.reset();
-        } else {
-          alert("Erreur lors de l'envoi. Réessayez.");
-        }
-      }).catch(() => {
-        alert("Erreur réseau, veuillez vérifier votre connexion.");
-      });
-    }
-
-    function showConfirmationCommande(event) {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById('confirmation-commande').classList.remove('hidden');
-          form.reset();
-        } else {
-          alert("Erreur lors de l'envoi. Réessayez.");
-        }
-      }).catch(() => {
-        alert("Erreur réseau, veuillez vérifier votre connexion.");
-      });
-    }
-
-    // Connexion/Déconnexion
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
+    const registerBtn = document.getElementById('register-btn');
     const userActions = document.getElementById('user-actions');
+
+    const registerModal = document.getElementById('register-modal');
+    const closeModal = document.getElementById('close-modal');
+    const registerForm = document.getElementById('register-form');
+
+    registerBtn.addEventListener('click', () => {
+      registerModal.classList.remove('hidden');
+    });
+
+    closeModal.addEventListener('click', () => {
+      registerModal.classList.add('hidden');
+    });
+
+    registerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(registerForm);
+      const user = {
+        prenom: formData.get('prenom'),
+        nom: formData.get('nom'),
+        naissance: formData.get('naissance'),
+        email: formData.get('email'),
+        whatsapp: formData.get('whatsapp')
+      };
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('username', user.prenom);
+      registerModal.classList.add('hidden');
+      updateUserUI();
+      alert("Bienvenue " + user.prenom + " ! Votre compte a été créé.");
+    });
 
     function updateUserUI() {
       const username = localStorage.getItem('username');
       if (username) {
         loginBtn.classList.add('hidden');
         logoutBtn.classList.remove('hidden');
+        registerBtn.classList.add('hidden');
         if (!document.getElementById('welcome')) {
           userActions.insertAdjacentHTML('afterbegin', `<span id="welcome" class="mr-2">Bienvenue, ${username}</span>`);
         }
       } else {
         loginBtn.classList.remove('hidden');
         logoutBtn.classList.add('hidden');
+        registerBtn.classList.remove('hidden');
         const welcome = document.getElementById('welcome');
         if (welcome) welcome.remove();
       }
     }
 
     loginBtn.addEventListener('click', () => {
-      const name = prompt("Entrez votre nom pour vous connecter :");
-      if (name) {
-        localStorage.setItem('username', name);
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        localStorage.setItem('username', user.prenom);
         updateUserUI();
+        alert("Connexion réussie. Bienvenue " + user.prenom + " !");
+      } else {
+        alert("Aucun utilisateur inscrit. Veuillez d'abord vous inscrire.");
       }
     });
 
