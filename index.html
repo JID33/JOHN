@@ -11,7 +11,6 @@
   <meta property="og:type" content="website" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
-    /* Bouton WhatsApp fixe en bas à droite */
     #whatsapp-fixed {
       position: fixed;
       bottom: 20px;
@@ -28,8 +27,8 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-  
-  <!-- Bouton WhatsApp fixe en bas à droite -->
+
+  <!-- Bouton WhatsApp -->
   <a id="whatsapp-fixed" href="https://wa.me/50943260012" target="_blank" rel="noopener" title="Contactez-nous sur WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-full h-full" />
   </a>
@@ -44,17 +43,19 @@
         </div>
       </div>
       <nav class="mt-4 sm:mt-0 space-x-4 flex items-center">
+        <a href="#accueil" class="text-white hover:underline">Accueil</a>
         <a href="#donnees" class="text-white hover:underline">Saisie & Données</a>
         <a href="#business" class="text-white hover:underline">Micro-Business</a>
         <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
-        <a href="/" title="Accueil" class="ml-6">
-          <img src="https://drive.google.com/uc?export=view&id=1rqtxa0gSEYNG6OXPXZzuEXwIPv6P6pEQ" alt="Logo Droit" class="w-16 h-16 object-contain rounded-full border border-white shadow-md hover:scale-105 transition-transform" />
-        </a>
+        <span id="user-actions" class="text-white space-x-2 ml-4">
+          <button id="login-btn" class="bg-white text-green-800 px-3 py-1 rounded hover:bg-green-100">Connexion</button>
+          <button id="logout-btn" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 hidden">Déconnexion</button>
+        </span>
       </nav>
     </div>
   </header>
 
-  <section class="py-10 px-4">
+  <section id="accueil" class="py-10 px-4">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl font-semibold mb-4">Bienvenue sur notre plateforme</h2>
       <p class="text-gray-600 text-sm mb-2">Notre mission : faciliter l’accès à des services professionnels de traitement de données tout en construisant une solidarité économique autour des micro-entreprises.</p>
@@ -165,6 +166,42 @@
         alert("Erreur réseau, veuillez vérifier votre connexion.");
       });
     }
+
+    // Connexion/Déconnexion
+    const loginBtn = document.getElementById('login-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const userActions = document.getElementById('user-actions');
+
+    function updateUserUI() {
+      const username = localStorage.getItem('username');
+      if (username) {
+        loginBtn.classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+        if (!document.getElementById('welcome')) {
+          userActions.insertAdjacentHTML('afterbegin', `<span id="welcome" class="mr-2">Bienvenue, ${username}</span>`);
+        }
+      } else {
+        loginBtn.classList.remove('hidden');
+        logoutBtn.classList.add('hidden');
+        const welcome = document.getElementById('welcome');
+        if (welcome) welcome.remove();
+      }
+    }
+
+    loginBtn.addEventListener('click', () => {
+      const name = prompt("Entrez votre nom pour vous connecter :");
+      if (name) {
+        localStorage.setItem('username', name);
+        updateUserUI();
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('username');
+      updateUserUI();
+    });
+
+    document.addEventListener('DOMContentLoaded', updateUserUI);
   </script>
 </body>
 </html>
