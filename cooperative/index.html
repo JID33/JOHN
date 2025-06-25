@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Coopérative D2B1</title>
+  <meta charset="UTF-8" />
+  <title>Coopérative Dream2Build1</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <div class="max-w-3xl mx-auto py-20 px-4 text-center">
-    <h1 class="text-3xl font-bold mb-4">🏦 Coopérative D2B1</h1>
-    <p class="text-gray-600">Rejoignez la coopérative D2B1 pour bâtir ensemble un capital solidaire et soutenir les micro-business des membres.</p>
-    <a href="/" class="text-green-700 underline mt-6 inline-block">← Retour à l'accueil</a>
+  <div class="max-w-4xl mx-auto py-16 px-6">
+    <h1 class="text-3xl font-bold text-center mb-6">🏦 Coopérative Dream2Build1</h1>
+    <p class="mb-6 text-center text-gray-700">
+      Notre coopérative vise à renforcer la solidarité économique locale et à soutenir les initiatives entrepreneuriales.
+    </p>
+
+    <section class="mb-10 bg-white p-6 rounded shadow">
+      <h2 class="text-2xl font-semibold mb-4">Membres actuels</h2>
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-green-200">
+            <th class="border px-3 py-2">Nom complet</th>
+            <th class="border px-3 py-2">Téléphone WhatsApp</th>
+            <th class="border px-3 py-2">Date d’adhésion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-3 py-2">Jean Dupont</td>
+            <td class="border px-3 py-2">+509 1234 5678</td>
+            <td class="border px-3 py-2">01/05/2025</td>
+          </tr>
+          <tr>
+            <td class="border px-3 py-2">Marie Lemoine</td>
+            <td class="border px-3 py-2">+509 8765 4321</td>
+            <td class="border px-3 py-2">15/06/2025</td>
+          </tr>
+          <!-- Ajouter plus de membres ici -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="bg-white p-6 rounded shadow">
+      <h2 class="text-2xl font-semibold mb-4">Devenir membre</h2>
+      <form id="cooperative-form" class="space-y-4">
+        <input type="text" name="nom" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
+        <input type="tel" name="whatsapp" placeholder="Téléphone WhatsApp" required class="w-full px-4 py-2 border rounded" />
+        <input type="email" name="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
+        <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Envoyer la demande</button>
+      </form>
+      <p id="confirmation" class="mt-4 text-green-700 font-semibold hidden">Merci pour votre demande, nous vous contacterons bientôt.</p>
+    </section>
+
+    <div class="text-center mt-6">
+      <a href="/" class="text-blue-700 underline">← Retour à l’accueil</a>
+    </div>
   </div>
+
+  <script>
+    document.getElementById('cooperative-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Ici, tu peux ajouter un appel API ou autre action pour envoyer les données.
+      this.reset();
+      document.getElementById('confirmation').classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>
-
