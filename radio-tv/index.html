@@ -1,16 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Radio & TV - D2B1</title>
+  <meta charset="UTF-8" />
+  <title>Radio & Télévision D2B1</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <div class="max-w-3xl mx-auto py-20 px-4 text-center">
-    <h1 class="text-3xl font-bold mb-4">📻 Radio & Télévision D2B1</h1>
-    <p class="text-gray-600">Écoutez nos émissions, regardez nos vidéos éducatives et suivez nos lives solidaires depuis n’importe où !</p>
-    <a href="/" class="text-green-700 underline mt-6 inline-block">← Retour à l'accueil</a>
+  <div class="max-w-xl mx-auto py-16 px-6">
+    <h1 class="text-3xl font-bold text-center mb-6">📻 Radio & Télévision D2B1</h1>
+    <p class="text-center mb-6">Découvrez nos flux en ligne et émissions solidaires.</p>
+    <div class="bg-white p-6 rounded shadow space-y-6">
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Radio en direct</h2>
+        <!-- Exemple d’intégration audio -->
+        <audio controls class="w-full">
+          <source src="https://example.com/stream-radio.mp3" type="audio/mpeg" />
+          Votre navigateur ne supporte pas l’audio HTML5.
+        </audio>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Télévision en direct</h2>
+        <!-- Exemple d’intégration vidéo -->
+        <video controls class="w-full" width="400" height="300">
+          <source src="https://example.com/stream-tv.mp4" type="video/mp4" />
+          Votre navigateur ne supporte pas la vidéo HTML5.
+        </video>
+      </div>
+    </div>
+    <div class="text-center mt-6">
+      <a href="/" class="text-blue-700 underline">← Retour à l’accueil</a>
+    </div>
   </div>
 </body>
 </html>
