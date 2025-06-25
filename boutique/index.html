@@ -1,16 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Boutique - D2B1</title>
+  <meta charset="UTF-8" />
+  <title>Boutique D2B1 - Commander un produit</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <div class="max-w-3xl mx-auto py-20 px-4 text-center">
-    <h1 class="text-3xl font-bold mb-4">🛒 Boutique D2B1</h1>
-    <p class="text-gray-600">Découvrez nos produits utiles pour lancer votre activité : modems, packs Internet, kits de démarrage, etc.</p>
-    <a href="/" class="text-green-700 underline mt-6 inline-block">← Retour à l'accueil</a>
+  <div class="max-w-xl mx-auto py-16 px-6">
+    <h1 class="text-3xl font-bold text-center mb-6">🛒 Commander un produit</h1>
+    <form id="orderForm" class="bg-white p-6 rounded shadow space-y-4">
+      <input type="text" placeholder="Nom complet" required class="w-full px-4 py-2 border rounded" />
+      <input type="tel" placeholder="Téléphone WhatsApp" required class="w-full px-4 py-2 border rounded" />
+      <input type="email" placeholder="Adresse e-mail" required class="w-full px-4 py-2 border rounded" />
+      <select required class="w-full px-4 py-2 border rounded">
+        <option value="">Choisir un produit</option>
+        <option>Pack Internet + Modem - 95 $</option>
+        <option>Carte SIM + Activation - 10 $</option>
+        <option>Kit Entrepreneur Mobile - 65 $</option>
+      </select>
+      <textarea placeholder="Adresse de livraison ou note" class="w-full px-4 py-2 border rounded" rows="3"></textarea>
+      <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Valider la commande</button>
+    </form>
+    <p id="order-confirmation" class="mt-4 text-green-700 font-semibold text-center hidden">Merci pour votre commande !</p>
+    <div class="text-center mt-6">
+      <a href="/" class="text-blue-700 underline">← Retour à l’accueil</a>
+    </div>
   </div>
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("order-confirmation").classList.remove("hidden");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
