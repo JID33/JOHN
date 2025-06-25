@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Idreams2build1 - Données & Micro-Business</title>
   <meta name="description" content="Plateforme solidaire de services numériques et d'entrepreneuriat collaboratif. Rejoignez-nous pour la saisie de données ou créer un micro-business." />
-  <meta property="og:title" content="Idreams2Build1 - Données & Micro-Business" />
-  <meta property="og:description" content="Coopération solidaire, micro-business tournants et services professionnels à distance." />
-  <meta property="og:image" content="https://drive.google.com/uc?export=view&id=17Jochcyvz6RJeOyYDunbjzfFaH8Ds6SF" />
-  <meta property="og:type" content="website" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     #whatsapp-fixed {
@@ -42,10 +37,14 @@
         </div>
       </div>
       <nav class="mt-4 sm:mt-0 space-x-4 flex items-center">
-        <a href="#accueil" class="text-white hover:underline">Accueil</a>
-        <a href="#donnees" class="text-white hover:underline">Saisie & Données</a>
-        <a href="#business" class="text-white hover:underline">Micro-Business</a>
-        <a href="#rejoindre" class="text-white hover:underline">Rejoindre</a>
+        <a href="/" class="text-white hover:underline">Accueil</a>
+        <a href="/donnees" class="text-white hover:underline">Saisie & Données</a>
+        <a href="/business" class="text-white hover:underline">Micro-Business</a>
+        <a href="/rejoindre" class="text-white hover:underline">Rejoindre</a>
+        <a href="/boutique" class="text-white hover:underline">🛒 Boutique</a>
+        <a href="/radio-tv" class="text-white hover:underline">📻 Radio & TV</a>
+        <a href="/rotatif" class="text-white hover:underline">💲 Rotatif</a>
+        <a href="/cooperative" class="text-white hover:underline">🏦 Coopérative</a>
         <span id="user-actions" class="text-white space-x-2 ml-4">
           <button id="register-btn" class="bg-yellow-300 text-green-900 px-3 py-1 rounded hover:bg-yellow-400">S’inscrire</button>
           <button id="login-btn" class="bg-white text-green-800 px-3 py-1 rounded hover:bg-green-100">Connexion</button>
@@ -149,7 +148,7 @@
         alert("Aucun utilisateur inscrit. Veuillez d'abord vous inscrire.");
       }
     });
-    
+
     logoutBtn.addEventListener('click', () => {
       localStorage.removeItem('username');
       updateUserUI();
